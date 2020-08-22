@@ -8,6 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(LogActivity::class, function (Faker $faker) {
     return [
         'user_id' => 1,
+        'time' => now(),
         'message' => $faker->text(),
         'ip_address' => $faker->ipv4,
         'user_agent' => $faker->userAgent

@@ -16,6 +16,7 @@ class CreateLogActivitiesTable extends Migration
         Schema::create('log_activities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDeleteCascade();
+            $table->timestamp('time');
             $table->string('message');
             $table->binary('ip_address');
             $table->string('user_agent');

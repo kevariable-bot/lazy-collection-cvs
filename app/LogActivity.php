@@ -9,7 +9,7 @@ class LogActivity extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'message', 'ip_address', 'user_agent'
+        'time', 'message', 'ip_address', 'user_agent'
     ];
 
     public function user()
