@@ -12,12 +12,12 @@ class LogActivityController extends Controller
         $filename = 'log-activities.cvs';
 
         return response()->streamDownload(function () use ($logs) {
-            $csv = fopen("php://output", "w+");
+            $cvs = fopen('php://output', 'w+');
 
-            fputcsv($csv, ["Time", "User ID", "Message", "IP Address", "User Agent"]);
+            fputcsv($cvs, ['Time', 'User ID', 'Message', 'IP Address', 'User Agent']);
 
             foreach ($logs as $log) {
-                fputcsv($csv, [
+                fputcsv($cvs, [
                     $log->time,
                     $log->user_id,
                     $log->message,
@@ -26,7 +26,7 @@ class LogActivityController extends Controller
                 ]);
             }
 
-            fclose($csv);
+            fclose($cvs);
         }, $filename, ['Content-type' => 'text/cvs']);
     }
 }
